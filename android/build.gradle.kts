@@ -1,3 +1,15 @@
+// 1. Buildscript shobar agey thakbe
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.google.gms:google-services:4.4.1")
+    }
+}
+
+// 2. Repositories setup
 allprojects {
     repositories {
         google()
@@ -5,6 +17,7 @@ allprojects {
     }
 }
 
+// 3. Build Directory logic (tomar existing code)
 val newBuildDir: Directory =
     rootProject.layout.buildDirectory
         .dir("../../build")
@@ -15,6 +28,7 @@ subprojects {
     val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 }
+
 subprojects {
     project.evaluationDependsOn(":app")
 }
@@ -22,3 +36,4 @@ subprojects {
 tasks.register<Delete>("clean") {
     delete(rootProject.layout.buildDirectory)
 }
+apply plugin: 'com.google.gms.google-services'
