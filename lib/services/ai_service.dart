@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AIService {
-  static const String _apiKey = "AIzaSyCIKPXpiqY2TbOyBREK4GNDpKOAOl_IVXE";
+  static const String _apiKey = "for safety";
 
   Future<String> getAIResponse(String message, String language) async {
     final url =
